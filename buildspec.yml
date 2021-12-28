@@ -44,9 +44,9 @@ phases:
       
       
       # - command
-  #post_build:
-    #commands:
-       #- mv json-files.zip 'https://amazon.com/s3://aws1123qw'
+  post_build:
+    commands:
+       - aws s3 mv json-files.zip s3://aws1123qw
       # - command
 #reports:
   #report-name-or-arn:
