@@ -37,8 +37,8 @@ phases:
     commands:
     - mkdir archive.zip
     - find . -type d -name demo-1 -exec cp -R *.json archive.zip \;
-    - find . -type d -name demo-2 -exec cp -R *.json build-output \;
-    - find . -type d -name demo-3 -exec cp -R *.json build-output \;
+    - find . -type d -name demo-2 -exec cp -R *.json archive.zip \;
+    - find . -type d -name demo-3 -exec cp -R *.json archive.zip \;
       
       
       
