@@ -44,9 +44,9 @@ phases:
       
       
       # - command
-  post_build:
-    commands:
-       - mv archive.zip ./
+  #post_build:
+    #commands:
+       #- mv archive.zip ./
       # - command
 #reports:
   #report-name-or-arn:
