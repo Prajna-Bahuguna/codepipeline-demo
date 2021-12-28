@@ -35,8 +35,8 @@ phases:
       # - command
   build:
     commands:
-    - mkdir archive.zip
-    - cp **/*.json archive.zip
+    - mkdir json-files.zip
+    - cp **/*.json json-files.zip
     #- find . -type d -name 'demo-1' -exec cp -R '*.json' archive.zip \;
     #- find . -type d -name 'demo-2' -exec cp -R '*.json' archive.zip \;
     #- find . -type d -name 'demo-3' -exec cp -R '*.json' archive.zip \;
