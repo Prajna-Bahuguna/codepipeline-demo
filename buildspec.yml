@@ -29,9 +29,9 @@ phases:
     #commands:
       # - command
       # - command
-  #pre_build:
-    #commands:
-       #- 
+  pre_build:
+    commands:
+       - aws s3 rm s3://prajna-bucket --recursive
       # - command
   build:
     commands:
