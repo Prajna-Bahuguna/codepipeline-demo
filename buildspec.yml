@@ -55,10 +55,10 @@ phases:
       # - command
   post_build:
     commands:
-       - aws s3 sync json-files s3://prajna-bucket/json-folder
-       - aws s3 sync demo-1-folder s3://prajna-bucket/folder2
-       - aws s3 sync demo-2-folder s3://prajna-bucket/folder3
-       - aws s3 sync demo-3-folder s3://prajna-bucket/folder4
+       - aws s3 sync json-files s3://prajna-bucket/json-folder/json-files
+       - aws s3 sync demo-1-folder s3://prajna-bucket/folder2/demo-1-folder
+       - aws s3 sync demo-2-folder s3://prajna-bucket/folder3/demo-2-folder
+       - aws s3 sync demo-3-folder s3://prajna-bucket/folder4/demo-3-folder
       # - command
 #reports:
   #report-name-or-arn:
