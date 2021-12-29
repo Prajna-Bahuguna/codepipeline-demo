@@ -29,14 +29,17 @@ phases:
     #commands:
       # - command
       # - command
-  pre_build:
-    commands:
-       - aws s3 rm s3://prajna-bucket --recursive
+  #pre_build:
+    #commands:
+       #- aws s3 rm s3://prajna-bucket --recursive
       # - command
   build:
     commands:
-    - mkdir json-files.zip
+    - mkdir json-files.zip, demo-1.zip, demo-2.zip, demo-3.zip
     - cp **/*.json json-files.zip
+    - zip -r demo-1 | mv demo-1 demo-1.zip
+    - zip -r demo-2 | mv demo-2 demo-2.zip
+    - zip -r demo-3 | mv demo-3 demo-3.zip
     #- find . -type d -name 'demo-1' -exec cp -R '*.json' archive.zip \;
     #- find . -type d -name 'demo-2' -exec cp -R '*.json' archive.zip \;
     #- find . -type d -name 'demo-3' -exec cp -R '*.json' archive.zip \;
@@ -46,7 +49,10 @@ phases:
       # - command
   post_build:
     commands:
-       - aws s3 sync json-files.zip s3://aws1123qw/json-files.zip
+       - aws s3 sync json-files.zip s3://prajna-bucket/folder1/json-files.zip
+       - aws s3 sync demo-1.zip s3://prajna-bucket/folder2/demo-1
+       - aws s3 sync demo-2.zip s3://prajna-bucket/folder2/demo-2
+       - aws s3 sync demo-3.zip s3://prajna-bucket/folder3/demo-3
       # - command
 #reports:
   #report-name-or-arn:
@@ -56,9 +62,9 @@ phases:
     #base-directory: location
     #discard-paths: yes
     #file-format: JunitXml | CucumberJson
-artifacts:
-  files:
-     - '**/*'
+#artifacts:
+#  files:
+    # - '**/*'
     # - location
   #name: $(date +%Y-%m-%d)
   #discard-paths: yes
