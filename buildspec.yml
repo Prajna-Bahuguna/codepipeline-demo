@@ -35,7 +35,7 @@ phases:
       # - command
   build:
     commands:
-    - mkdir {json-files.zip, demo-1.zip, demo-2.zip, demo-3.zip}
+    - mkdir {json-files.zip,demo-1.zip,demo-2.zip,demo-3.zip}
     - cp **/*.json json-files.zip
     - zip -r demo-1 | mv demo-1 demo-1.zip
     - zip -r demo-2 | mv demo-2 demo-2.zip
