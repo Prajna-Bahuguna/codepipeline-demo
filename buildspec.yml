@@ -35,11 +35,11 @@ phases:
       # - command
   build:
     commands:
-    - mkdir {json-files.zip,demo-1.zip,demo-2.zip,demo-3.zip}
-    - cp **/*.json json-files.zip
-    - zip -r demo-1 | mv demo-1 demo-1.zip
-    - zip -r demo-2 | mv demo-2 demo-2.zip
-    - zip -r demo-3 | mv demo-3 demo-3.zip
+    - mkdir {json-files,demo-1-folder,demo-2-folder,demo-3-folder}
+    - cp **/*.json json-files
+    - zip -r demo-1 | mv demo-1.zip demo-1-folder
+    - zip -r demo-2 | mv demo-2.zip demo-2-folder
+    - zip -r demo-3 | mv demo-3.zip demo-3-folder
     #- find . -type d -name 'demo-1' -exec cp -R '*.json' archive.zip \;
     #- find . -type d -name 'demo-2' -exec cp -R '*.json' archive.zip \;
     #- find . -type d -name 'demo-3' -exec cp -R '*.json' archive.zip \;
@@ -49,10 +49,10 @@ phases:
       # - command
   post_build:
     commands:
-       - aws s3 sync json-files.zip s3://prajna-bucket/folder1/json-files.zip
-       - aws s3 sync demo-1.zip s3://prajna-bucket/folder2/demo-1
-       - aws s3 sync demo-2.zip s3://prajna-bucket/folder2/demo-2
-       - aws s3 sync demo-3.zip s3://prajna-bucket/folder3/demo-3
+       - aws s3 sync json-files s3://prajna-bucket/json-folder
+       - aws s3 sync demo-1-folder s3://prajna-bucket/folder2
+       - aws s3 sync demo-2-folder s3://prajna-bucket/folder3
+       - aws s3 sync demo-3-folder s3://prajna-bucket/folder4
       # - command
 #reports:
   #report-name-or-arn:
