@@ -1,1 +1,15 @@
 
+{
+  "studentid" : 102,
+  "firstname" : "Marry",
+  "lastname" : "Josh",
+  "isStudent" : true,
+  "classes" : [
+    "Business Research",
+    "English Literature",
+    "Finance"
+  ],
+  "getFullName" : function(){
+    alert(`${this.firstname} ${this.lastname}`);
+  } 
+}
