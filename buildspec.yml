@@ -39,7 +39,7 @@ phases:
     - mkdir demo-1-folder                 #create 'demo-1-folder' folder
     - mkdir demo-2-folder                 #create 'demo-2-folder' folder
     - mkdir demo-3-folder                 #create 'demo-3-folder' folder
-    - cp **/*.json json-files.            #copy all the '.json' files that are in root folder as well as level-1-deep folder to 'json-files' folder
+    - cp **/*.json json-files             #copy all the '.json' files that are in root folder as well as level-1-deep folder to 'json-files' folder
     - zip -r demo-1.zip demo-1            #zip 'demo-1' to 'demo-1.zip'
     - mv demo-1.zip demo-1-folder         #move 'demo-1.zip' to 'demo-1-folder'
     - zip -r demo-2.zip demo-2            #zip 'demo-2' to 'demo-2.zip'
