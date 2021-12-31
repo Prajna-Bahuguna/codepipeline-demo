@@ -35,17 +35,18 @@ phases:
       # - command
   build:
     commands:
-    - mkdir json-files
-    - mkdir demo-1-folder
-    - mkdir demo-2-folder
-    - mkdir demo-3-folder
-    - cp **/*.json json-files
-    - zip -r demo-1.zip demo-1 
-    - mv demo-1.zip demo-1-folder
-    - zip -r demo-2.zip demo-2 
-    - mv demo-2.zip demo-2-folder
-    - zip -r demo-3.zip demo-3 
-    - mv demo-3.zip demo-3-folder
+    - mkdir json-files                    #create 'json-files' folder
+    - mkdir demo-1-folder                 #create 'demo-1-folder' folder
+    - mkdir demo-2-folder                 #create 'demo-2-folder' folder
+    - mkdir demo-3-folder                 #create 'demo-3-folder' folder
+    - cp **/*.json json-files.            #copy all the '.json' files that are in root folder as well as level-1-deep folder to 'json-files' folder
+    - zip -r demo-1.zip demo-1            #zip 'demo-1' to 'demo-1.zip'
+    - mv demo-1.zip demo-1-folder         #move 'demo-1.zip' to 'demo-1-folder'
+    - zip -r demo-2.zip demo-2            #zip 'demo-2' to 'demo-2.zip'
+    - mv demo-2.zip demo-2-folder         #move 'demo-2.zip' to 'demo-2-folder'
+    - zip -r demo-3.zip demo-3            #zip 'demo-3' to 'demo-3.zip'
+    - mv demo-3.zip demo-3-folder         #move 'demo-3.zip' to 'demo-3-folder'
+    
     #- find . -type d -name 'demo-1' -exec cp -R '*.json' archive.zip \;
     #- find . -type d -name 'demo-2' -exec cp -R '*.json' archive.zip \;
     #- find . -type d -name 'demo-3' -exec cp -R '*.json' archive.zip \;
@@ -55,10 +56,10 @@ phases:
       # - command
   post_build:
     commands:
-       - aws s3 sync json-files s3://prajna-bucket/json-folder/json-files
-       - aws s3 sync demo-1-folder s3://prajna-bucket/folder2/demo-1-folder
-       - aws s3 sync demo-2-folder s3://prajna-bucket/folder3/demo-2-folder
-       - aws s3 sync demo-3-folder s3://prajna-bucket/folder4/demo-3-folder
+       - aws s3 sync json-files s3://prajna-bucket/json-folder/json-files   #sync 'json-files' folder to given s3 path
+       - aws s3 sync demo-1-folder s3://prajna-bucket/folder2/demo-1-folder #sync 'demo-1-folder' folder to given s3 path
+       - aws s3 sync demo-2-folder s3://prajna-bucket/folder3/demo-2-folder #sync 'demo-2-folder' folder to given s3 path
+       - aws s3 sync demo-3-folder s3://prajna-bucket/folder4/demo-3-folder #sync 'demo-3-folder' folder to given s3 path
       # - command
 #reports:
   #report-name-or-arn:
